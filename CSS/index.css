@@ -1,0 +1,702 @@
+@charset "UTF-8";
+/**
+ * @file Galactus.scss
+ *
+ * Galactus - Devourer of worlds and lay-outs (https://www.youtube.com/watch?v=6pyNEJAiNCU).
+ *
+ * This file provides a 12 column responsive grid with multiple variations.
+ *
+ * @author Stefan Klokgieters <stefan@studyportals.com>
+ * @author Alexandra Marginean <alexia@studyportals.com>
+ * @copyright © 2014-2016 StudyPortals B.V., all rights reserved.
+ * @version 3.2.2
+ *
+ * For a full explanation see the wiki: https://github.com/studyportals/Shared/wiki/Galactus-responsive-grid.
+ */
+/**
+ * @file _SASSGeneral.scss
+ *
+ * All the basic needed Sass functions, mixins and other main styling includes.
+ *
+ * @author Stefan Klokgieters <stefan@studyportals.com>
+ * @author Stanley Clark <stanley@studyportals.com>
+ * @author Johan Voorhout <johan@studyportals.com>
+ * @copyright © 2014-2017 StudyPortals B.V., all rights reserved.
+ * @version 2.6.0
+ */
+/*
+--------------------------------------------------------------------------------
+	(Global) portal colors
+--------------------------------------------------------------------------------
+*/
+/**
+ * Brand (primary) color palette.
+ *
+ * @author Stefan Klokgieters <stefan@studyportals.com>
+ * @author Alexandra Marginean <alexia@studyportals.com>
+ * @version 1.0.1
+ */
+/**
+ * @file GeneralColor.css
+ *
+ * (Global) portal coloring.
+ *
+ * @author Stefan Klokgieters <stefan@studyportals.com>
+ * @author Alexandra Marginean <alexia@studyportals.com>
+ * @copyright © 2014-2017 StudyPortals B.V., all rights reserved.
+ * @version 1.1.3
+ *
+ */
+/*
+--------------------------------------------------------------------------------
+	Font sizes
+--------------------------------------------------------------------------------
+*/
+/**
+ * @file FontSizes.css
+ *
+ * (Global) font sizes.
+ *
+ * @author Stefan Klokgieters <stefan@studyportals.com>
+ * @author Alexandra Marginean <alexia@studyportals.com>
+ * @copyright © 2014-2017 StudyPortals B.V., all rights reserved.
+ * @version 2.0.0
+ */
+/*
+--------------------------------------------------------------------------------
+	Z-index
+--------------------------------------------------------------------------------
+*/
+/**
+ * @file Z-Index.scss
+ *
+ * (Global) z-index values.
+ * Z-index on relative objects is relative! But we still recommend using the
+ * variables to avoid weird numbers.
+ *
+ * @author Stefan Klokgieters <stefan@studyportals.com>
+ * @author Johan Voorhout <johan@studyportals.com>
+ * @author Frank Kluijtmans <frank@studyportals.com>
+ * @copyright © 2015 StudyPortals B.V., all rights reserved.
+ * @version 1.0.0
+ */
+/*
+--------------------------------------------------------------------------------
+	Page styling
+--------------------------------------------------------------------------------
+*/
+/**
+ * @file PageStyling.css
+ *
+ * (Global) page styling variables.
+ *
+ * @author Stefan Klokgieters <stefan@studyportals.com>
+ * @copyright © 2015 StudyPortals B.V., all rights reserved.
+ * @version 1.0.0
+ *
+ */
+/*
+--------------------------------------------------------------------------------
+	Breakpoint mixins
+--------------------------------------------------------------------------------
+*/
+/*
+--------------------------------------------------------------------------------
+	General mixins
+--------------------------------------------------------------------------------
+*/
+/*
+--------------------------------------------------------------------------------
+	Linear Gradient Mixin And Functions
+--------------------------------------------------------------------------------
+*/
+/*
+--------------------------------------------------------------------------------
+	Reset styling
+--------------------------------------------------------------------------------
+*/
+html, body, .colblock, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, th, article, aside, canvas, details, embed, figure, figcaption, footer, header, menu, nav, output, ruby, section, summary, time, mark, audio, video, p {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  line-height: 1.5em; }
+
+html {
+  font-size: 16px; }
+
+@media all and (max-width: 480px) {
+  body {
+    font-size: 85%; } }
+
+@media all and (min-width: 481px) and (max-width: 768px) {
+  body {
+    font-size: 90%; } }
+
+@media all and (min-width: 769px) and (max-width: 1280px) {
+  body {
+    font-size: 95%; } }
+
+@media all and (min-width: 1281px) {
+  body {
+    font-size: 100%; } }
+
+article, aside, details, figcaption, figure, footer, header, menu, nav, section {
+  display: block; }
+
+a:active {
+  outline: none; }
+
+:focus {
+  -moz-outline-style: none;
+  outline: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+textarea, input[type="text"], input[type="number"], input[type="date"],
+input[type="email"], input[type="password"], input[type="search"], input[type="submit"],
+input[type="tel"], button {
+  -webkit-appearance: none; }
+
+input, textarea, select {
+  border-radius: 0; }
+
+input, textarea, select, option, button {
+  font-family: inherit; }
+
+/*
+--------------------------------------------------------------------------------
+	Galactus 12 column grid
+--------------------------------------------------------------------------------
+*/
+/*
+	Calculates the width for the given amount of columns.
+	Formula: (100% - gutter) * amount of columns / 12 columns - gutter
+*/
+/*
+	Calculates the position for the given amount of columns.
+	Formula: (100% - gutter) * amount of columns / 12 columns + gutter
+*/
+#galactus {
+  position: relative;
+  min-width: 320px;
+  width: 100%;
+  font-size: 1em;
+  word-wrap: break-word;
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow: hidden;
+  /*
+	----------------------------------------------------------------------------
+		Additional/ exceptional styling
+	----------------------------------------------------------------------------
+	*/ }
+  #galactus .col1, #galactus .col2, #galactus .col2-right, #galactus .col2-left, #galactus .nav-bar:after {
+    clear: both; }
+  #galactus .col1, #galactus .col2, #galactus .col2-right, #galactus .col2-left {
+    padding-top: 1rem;
+    padding-bottom: 1rem; }
+  #galactus .nav-bar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    margin: 0;
+    padding: 0; }
+    #galactus .nav-bar .colblock {
+      padding: 0;
+      margin: 0 -100% 0 0;
+      width: 100%;
+      float: left;
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box; }
+  #galactus .col1:after, #galactus .col2:after, #galactus .col2-right:after, #galactus .col2-left:after, #galactus .nav-bar:after {
+    content: "";
+    clear: both;
+    display: block; }
+  #galactus .col1 .colblock, #galactus .col2 .colblock, #galactus .col2-right .colblock, #galactus .col2-left .colblock {
+    float: left;
+    margin-right: -100%;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box; }
+  #galactus .col1 .colblock:nth-child(n+1), #galactus .col2 .colblock:nth-child(n+1), #galactus .col2-right .colblock:nth-child(n+1), #galactus .col2-left .colblock:nth-child(n+1) {
+    margin-left: 0;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    clear: both; }
+  @media all and (max-width: 480px) {
+    #galactus .col1 > .colblock {
+      float: left;
+      margin-left: 0.5rem !important;
+      width: calc(100% - (2 * 0.5rem)); }
+    #galactus .col2 > .colblock {
+      float: left;
+      margin-right: -100%;
+      margin-left: 0.5rem !important;
+      width: calc(100% - (2 * 0.5rem));
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      clear: both; }
+    #galactus .col2-right > .colblock {
+      float: left;
+      margin-right: -100%;
+      margin-left: 0.5rem !important;
+      width: calc(100% - (2 * 0.5rem));
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      clear: both; }
+    #galactus .col2-left > .colblock {
+      float: left;
+      margin-right: -100%;
+      margin-left: 0.5rem !important;
+      width: calc(100% - (2 * 0.5rem));
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      clear: both; } }
+  @media all and (min-width: 481px) and (max-width: 768px) {
+    #galactus .col1 > .colblock {
+      float: left;
+      margin-left: 1.5rem !important;
+      width: calc(100% - (2 * 1.5rem)); }
+    #galactus .col2 > .colblock {
+      float: left;
+      margin-right: -100%;
+      width: calc((100% - 1.5rem) * 6 / 12 - 1.5rem);
+      margin-top: 1rem;
+      margin-bottom: 1rem; }
+    #galactus .col2 > .colblock:nth-child(2n+1) {
+      margin-left: 1.5rem;
+      clear: both; }
+    #galactus .col2 > .colblock:nth-child(2n+2) {
+      margin-left: calc((100% - 1.5rem) * 6 / 12 + 1.5rem);
+      clear: none; }
+    #galactus .col2-right > .colblock {
+      float: left;
+      margin-right: -100%;
+      margin-left: 1.5rem !important;
+      width: calc(100% - (2* 1.5rem));
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      clear: both; }
+    #galactus .col2-left > .colblock {
+      float: left;
+      margin-right: -100%;
+      margin-left: 1.5rem !important;
+      width: calc(100% - (2 * 1.5rem));
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      clear: both; } }
+  @media all and (min-width: 769px) and (max-width: 1280px) {
+    #galactus .col1 > .colblock {
+      float: left;
+      margin-left: 1.5rem !important;
+      width: calc(100% - (2 * 1.5rem)); }
+    #galactus .col2 > .colblock {
+      float: left;
+      margin-right: -100%;
+      width: calc((100% - 1.5rem) * 6 / 12 - 1.5rem);
+      margin-top: 1rem;
+      margin-bottom: 1rem; }
+    #galactus .col2 > .colblock:nth-child(2n+1) {
+      margin-left: 1.5rem;
+      clear: both; }
+    #galactus .col2 > .colblock:nth-child(2n+2) {
+      margin-left: calc((100% - 1.5rem) * 6 / 12 + 1.5rem);
+      clear: none; }
+    #galactus .col2-right > .colblock {
+      float: left;
+      margin-right: -100%;
+      width: calc((100% - 1.5rem) * 4 / 12 - 1.5rem);
+      margin-top: 1rem;
+      margin-bottom: 1rem; }
+    #galactus .col2-right > .colblock:nth-child(2n+1) {
+      margin-left: calc((100% - 1.5rem) * 4 / 12 + 1.5rem);
+      clear: both;
+      width: calc((100% - 1.5rem) * 8 / 12 - 1.5rem); }
+    #galactus .col2-right > .colblock:nth-child(2n+2) {
+      margin-left: 1.5rem;
+      clear: none; }
+    #galactus .col2-left > .colblock {
+      float: left;
+      margin-right: -100%;
+      width: calc((100% - 1.5rem) * 8 / 12 - 1.5rem);
+      margin-top: 1rem;
+      margin-bottom: 1rem; }
+    #galactus .col2-left > .colblock:nth-child(2n+1) {
+      margin-left: 1.5rem;
+      clear: both; }
+    #galactus .col2-left > .colblock:nth-child(2n+2) {
+      margin-left: calc((100% - 1.5rem) * 8 / 12 + 1.5rem);
+      clear: none;
+      width: calc((100% - 1.5rem) * 4 / 12 - 1.5rem); } }
+  @media all and (min-width: 1281px) {
+    #galactus .col1 > .colblock {
+      float: left;
+      margin-left: 1.5rem !important;
+      width: calc(100% - (2 * 1.5rem)); }
+    #galactus .col2 > .colblock {
+      float: left;
+      margin-right: -100%;
+      width: calc((100% - 1.5rem) * 6 / 12 - 1.5rem);
+      margin-top: 1rem;
+      margin-bottom: 1rem; }
+    #galactus .col2 > .colblock:nth-child(2n+1) {
+      margin-left: 1.5rem;
+      clear: both; }
+    #galactus .col2 > .colblock:nth-child(2n+2) {
+      margin-left: calc((100% - 1.5rem) * 6 / 12 + 1.5rem);
+      clear: none; }
+    #galactus .col2-right > .colblock {
+      float: left;
+      margin-right: -100%;
+      width: calc((100% - 1.5rem) * 4 / 12 - 1.5rem);
+      margin-top: 1rem;
+      margin-bottom: 1rem; }
+    #galactus .col2-right > .colblock:nth-child(2n+1) {
+      margin-left: calc((100% - 1.5rem) * 4 / 12 + 1.5rem);
+      clear: both;
+      width: calc((100% - 1.5rem) * 8 / 12 - 1.5rem); }
+    #galactus .col2-right > .colblock:nth-child(2n+2) {
+      margin-left: 1.5rem;
+      clear: none; }
+    #galactus .col2-left > .colblock {
+      float: left;
+      margin-right: -100%;
+      width: calc((100% - 1.5rem) * 8 / 12 - 1.5rem);
+      margin-top: 1rem;
+      margin-bottom: 1rem; }
+    #galactus .col2-left > .colblock:nth-child(2n+1) {
+      margin-left: 1.5rem;
+      clear: both; }
+    #galactus .col2-left > .colblock:nth-child(2n+2) {
+      margin-left: calc((100% - 1.5rem) * 8 / 12 + 1.5rem);
+      clear: none;
+      width: calc((100% - 1.5rem) * 4 / 12 - 1.5rem); } }
+  #galactus img {
+    max-width: 100%;
+    width: auto;
+    height: auto; }
+  #galactus .no-top-margin {
+    margin-top: 0 !important; }
+  #galactus .no-bottom-margin {
+    margin-bottom: 0 !important; }
+  #galactus .no-vertical-margin {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important; }
+  #galactus .no-top-padding {
+    padding-top: 0 !important; }
+  #galactus .no-bottom-padding {
+    padding-bottom: 0 !important; }
+  #galactus .no-vertical-padding {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important; }
+  #galactus .col1.wrapped, #galactus .col2.wrapped, #galactus .col2-right.wrapped, #galactus .col2-left.wrapped {
+    max-width: 1400px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    float: none !important; }
+  #galactus .col1 .colblock {
+    /*
+				Attaches an element wrapper for all 'colblock' elements within
+				the row variations. This wrapper is only
+				intended for improving readability, not as a page wrapper.
+			*/ }
+    #galactus .col1 .colblock .readability-wrapped {
+      max-width: 960px;
+      margin: 0 auto; }
+
+/*
+--------------------------------------------------------------------------------
+	Narrow grid variation: Galactus 12 column grid overwrites and adjustments
+
+Since the grid will change and the process will be slow, page by page, the
+temporary solution will be to overwrite the parts of the grid that will change,
+for example the breakpoints, wrapper or font-size. With this solution both
+variations can run in parallel.
+
+The new grid can be used by adding an extra class .Narrow to the wrapping element
+with the ID = galactus.
+
+Please use the new grid as much as it is possible, so that later on we can switch
+to only one variation.
+
+Important: In order to have the right font-sizes, the class narrow has to be added
+to the body tag in order to overwrite the old one.
+--------------------------------------------------------------------------------
+*/
+/* Mixin for the general breakpoints which are defined in _SASSGeneral and overwritten
+ here. After removing the narrow grid variation, this styling should be
+ applied in the _SASSGeneral file.*/
+/**
+ * @file _BreakPointNarrow.scss
+ *
+ * Mixin for the narrow breakpoints
+ *
+ * After removing the narrow grid variation, this styling should be
+ * applied in the _SASSGeneral file directly.
+ *
+ * @author Stanley Clark <stanley@studyportals.com>
+ * @copyright © 2017 StudyPortals B.V., all rights reserved.
+ * @version 1.0.0
+ */
+@media all and (max-width: 480px) {
+  body.narrow {
+    font-size: 85%; } }
+
+@media all and (min-width: 481px) and (max-width: 768px) {
+  body.narrow {
+    font-size: 90%; } }
+
+@media all and (min-width: 769px) and (max-width: 1024px) {
+  body.narrow {
+    font-size: 95%; } }
+
+@media all and (min-width: 1025px) {
+  body.narrow {
+    font-size: 100%; } }
+
+#galactus.narrow {
+  position: relative;
+  min-width: 320px;
+  width: 100%;
+  font-size: 1em;
+  word-wrap: break-word;
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow: hidden;
+  /*
+	----------------------------------------------------------------------------
+		Additional/ exceptional styling
+	----------------------------------------------------------------------------
+	*/ }
+  #galactus.narrow .col1, #galactus.narrow .col2, #galactus.narrow .col2-right, #galactus.narrow .col2-left, #galactus.narrow .nav-bar:after {
+    clear: both; }
+  #galactus.narrow .col1, #galactus.narrow .col2, #galactus.narrow .col2-right, #galactus.narrow .col2-left {
+    padding-top: 1rem;
+    padding-bottom: 1rem; }
+  #galactus.narrow .nav-bar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    margin: 0;
+    padding: 0; }
+    #galactus.narrow .nav-bar .colblock {
+      padding: 0;
+      margin: 0 -100% 0 0;
+      width: 100%;
+      float: left;
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box; }
+  #galactus.narrow .col1:after, #galactus.narrow .col2:after, #galactus.narrow .col2-right:after, #galactus.narrow .col2-left:after, #galactus.narrow .nav-bar:after {
+    content: "";
+    clear: both;
+    display: block; }
+  #galactus.narrow .col1 .colblock, #galactus.narrow .col2 .colblock, #galactus.narrow .col2-right .colblock, #galactus.narrow .col2-left .colblock {
+    float: left;
+    margin-right: -100%;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box; }
+  #galactus.narrow .col1 .colblock:nth-child(n+1), #galactus.narrow .col2 .colblock:nth-child(n+1), #galactus.narrow .col2-right .colblock:nth-child(n+1), #galactus.narrow .col2-left .colblock:nth-child(n+1) {
+    margin-left: 0;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    clear: both; }
+  @media all and (max-width: 480px) {
+    #galactus.narrow .col1 > .colblock {
+      float: left;
+      margin-left: 1.25rem !important;
+      width: calc(100% - (2 * 1.25rem)); }
+    #galactus.narrow .col2 > .colblock {
+      float: left;
+      margin-right: -100%;
+      margin-left: 1.25rem !important;
+      width: calc(100% - (2 * 1.25rem));
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      clear: both; }
+    #galactus.narrow .col2-right > .colblock {
+      float: left;
+      margin-right: -100%;
+      margin-left: 1.25rem !important;
+      width: calc(100% - (2 * 1.25rem));
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      clear: both; }
+    #galactus.narrow .col2-left > .colblock {
+      float: left;
+      margin-right: -100%;
+      margin-left: 1.25rem !important;
+      width: calc(100% - (2 * 1.25rem));
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      clear: both; } }
+  @media all and (min-width: 481px) and (max-width: 768px) {
+    #galactus.narrow .col1 > .colblock {
+      float: left;
+      margin-left: 1.25rem !important;
+      width: calc(100% - (2 * 1.25rem)); }
+    #galactus.narrow .col2 > .colblock {
+      float: left;
+      margin-right: -100%;
+      width: calc((100% - 1.25rem) * 6 / 12 - 1.25rem);
+      margin-top: 1rem;
+      margin-bottom: 1rem; }
+    #galactus.narrow .col2 > .colblock:nth-child(2n+1) {
+      margin-left: 1.25rem;
+      clear: both; }
+    #galactus.narrow .col2 > .colblock:nth-child(2n+2) {
+      margin-left: calc((100% - 1.25rem) * 6 / 12 + 1.25rem);
+      clear: none; }
+    #galactus.narrow .col2-right > .colblock {
+      float: left;
+      margin-right: -100%;
+      margin-left: 1.25rem !important;
+      width: calc(100% - (2* 1.25rem));
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      clear: both; }
+    #galactus.narrow .col2-left > .colblock {
+      float: left;
+      margin-right: -100%;
+      margin-left: 1.25rem !important;
+      width: calc(100% - (2 * 1.25rem));
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      clear: both; } }
+  @media all and (min-width: 769px) and (max-width: 1024px) {
+    #galactus.narrow .col1 > .colblock {
+      float: left;
+      margin-left: 1.25rem !important;
+      width: calc(100% - (2 * 1.25rem)); }
+    #galactus.narrow .col2 > .colblock {
+      float: left;
+      margin-right: -100%;
+      width: calc((100% - 1.25rem) * 6 / 12 - 1.25rem);
+      margin-top: 1rem;
+      margin-bottom: 1rem; }
+    #galactus.narrow .col2 > .colblock:nth-child(2n+1) {
+      margin-left: 1.25rem;
+      clear: both; }
+    #galactus.narrow .col2 > .colblock:nth-child(2n+2) {
+      margin-left: calc((100% - 1.25rem) * 6 / 12 + 1.25rem);
+      clear: none; }
+    #galactus.narrow .col2-right > .colblock {
+      float: left;
+      margin-right: -100%;
+      width: calc((100% - 1.25rem) * 4 / 12 - 1.25rem);
+      margin-top: 1rem;
+      margin-bottom: 1rem; }
+    #galactus.narrow .col2-right > .colblock:nth-child(2n+1) {
+      margin-left: calc((100% - 1.25rem) * 4 / 12 + 1.25rem);
+      clear: both;
+      width: calc((100% - 1.25rem) * 8 / 12 - 1.25rem); }
+    #galactus.narrow .col2-right > .colblock:nth-child(2n+2) {
+      margin-left: 1.25rem;
+      clear: none; }
+    #galactus.narrow .col2-left > .colblock {
+      float: left;
+      margin-right: -100%;
+      width: calc((100% - 1.25rem) * 8 / 12 - 1.25rem);
+      margin-top: 1rem;
+      margin-bottom: 1rem; }
+    #galactus.narrow .col2-left > .colblock:nth-child(2n+1) {
+      margin-left: 1.25rem;
+      clear: both; }
+    #galactus.narrow .col2-left > .colblock:nth-child(2n+2) {
+      margin-left: calc((100% - 1.25rem) * 8 / 12 + 1.25rem);
+      clear: none;
+      width: calc((100% - 1.25rem) * 4 / 12 - 1.25rem); } }
+  @media all and (min-width: 1025px) {
+    #galactus.narrow .col1 > .colblock {
+      float: left;
+      margin-left: 1.25rem !important;
+      width: calc(100% - (2 * 1.25rem)); }
+    #galactus.narrow .col2 > .colblock {
+      float: left;
+      margin-right: -100%;
+      width: calc((100% - 1.25rem) * 6 / 12 - 1.25rem);
+      margin-top: 1rem;
+      margin-bottom: 1rem; }
+    #galactus.narrow .col2 > .colblock:nth-child(2n+1) {
+      margin-left: 1.25rem;
+      clear: both; }
+    #galactus.narrow .col2 > .colblock:nth-child(2n+2) {
+      margin-left: calc((100% - 1.25rem) * 6 / 12 + 1.25rem);
+      clear: none; }
+    #galactus.narrow .col2-right > .colblock {
+      float: left;
+      margin-right: -100%;
+      width: calc((100% - 1.25rem) * 4 / 12 - 1.25rem);
+      margin-top: 1rem;
+      margin-bottom: 1rem; }
+    #galactus.narrow .col2-right > .colblock:nth-child(2n+1) {
+      margin-left: calc((100% - 1.25rem) * 4 / 12 + 1.25rem);
+      clear: both;
+      width: calc((100% - 1.25rem) * 8 / 12 - 1.25rem); }
+    #galactus.narrow .col2-right > .colblock:nth-child(2n+2) {
+      margin-left: 1.25rem;
+      clear: none; }
+    #galactus.narrow .col2-left > .colblock {
+      float: left;
+      margin-right: -100%;
+      width: calc((100% - 1.25rem) * 8 / 12 - 1.25rem);
+      margin-top: 1rem;
+      margin-bottom: 1rem; }
+    #galactus.narrow .col2-left > .colblock:nth-child(2n+1) {
+      margin-left: 1.25rem;
+      clear: both; }
+    #galactus.narrow .col2-left > .colblock:nth-child(2n+2) {
+      margin-left: calc((100% - 1.25rem) * 8 / 12 + 1.25rem);
+      clear: none;
+      width: calc((100% - 1.25rem) * 4 / 12 - 1.25rem); } }
+  #galactus.narrow img {
+    max-width: 100%;
+    width: auto;
+    height: auto; }
+  #galactus.narrow .no-top-margin {
+    margin-top: 0 !important; }
+  #galactus.narrow .no-bottom-margin {
+    margin-bottom: 0 !important; }
+  #galactus.narrow .no-vertical-margin {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important; }
+  #galactus.narrow .no-top-padding {
+    padding-top: 0 !important; }
+  #galactus.narrow .no-bottom-padding {
+    padding-bottom: 0 !important; }
+  #galactus.narrow .no-vertical-padding {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important; }
+  #galactus.narrow .col1.wrapped, #galactus.narrow .col2.wrapped, #galactus.narrow .col2-right.wrapped, #galactus.narrow .col2-left.wrapped {
+    max-width: 1220px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    float: none !important; }
+  #galactus.narrow .col1 .colblock {
+    /*
+				Attaches an element wrapper for all 'colblock' elements within
+				the row variations. This wrapper is only
+				intended for improving readability, not as a page wrapper.
+			*/ }
+    #galactus.narrow .col1 .colblock .readability-wrapped {
+      max-width: 960px;
+      margin: 0 auto; }
+  #galactus.narrow .reduced-font {
+    font-size: 0.875rem; }
