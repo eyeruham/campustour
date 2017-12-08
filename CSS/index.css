@@ -19,10 +19,17 @@
 
 ul {
     float: left;
-    column-count: 2;
     margin: 0 750px 0 750px; 
     font-family: OpenSans; 
     font-size: 13px;    
+}
+.column{
+    clear:both;
+}
+.column ul {
+    
+    width: 30em;
+    margin: 1em;
 }
 
 /** 2 lists, put next to each other with 50% width, float left, into columns
