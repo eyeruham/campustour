@@ -1,5 +1,11 @@
 #street-view {
-    width: 700px;
+    width: 800px;
     max-height: 500px;
-    margin: 200px auto;
+    margin: 10px auto 200px auto;
+}
+
+#mainHeader {
+    text-align: center;
+    padding-top: 40px;
+    font-family: OpenSans Semibold;
 }
