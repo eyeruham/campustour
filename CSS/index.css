@@ -20,8 +20,9 @@
 ul {
     float: left;
     column-count: 2;
-    margin: 0 750px 0 750px 
-    
+    margin: 0 750px 0 750px; 
+    font-family: OpenSans; 
+    font-size: 13px;    
 }
 
-/** 2 lists, pu tnext to each other with 50% width, float left, into columns
+/** 2 lists, put next to each other with 50% width, float left, into columns
