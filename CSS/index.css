@@ -11,13 +11,15 @@
 }
 
 #body {
-    margin: 100px 250px 100px 250px; 
+    margin: 100px 250px 50px 250px; 
     text-align: center;
     font-family: OpenSans;
     font-size: 13px;
 }
 
 ul {
+    float: left;
+    column-count: 2;
     margin: 0 750px 0 750px 
     
 }
